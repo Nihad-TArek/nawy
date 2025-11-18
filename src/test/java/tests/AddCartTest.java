@@ -3,7 +3,6 @@ package tests;
 import base.baseTest;
 import org.junit.jupiter.api.Test;
 import pages.HomePage;
-import pages.AddToCartPage;
 
 public class AddCartTest extends baseTest {
 
@@ -13,8 +12,9 @@ public class AddCartTest extends baseTest {
         HomePage home = new HomePage(page);
         home.openHomePage();
         home.clickMonitors();
-//        AddToCartPage addToCartPage = new AddToCartPage(page);
-//        addToCartPage.clickAddToCartButton();
+        home.clickaddtocart();
+        page.waitForTimeout(2000);
+
 
     }
 }

@@ -1,6 +1,8 @@
 package pages;
 
+import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.WaitForSelectorState;
 
 public class HomePage extends BasePage {
 
@@ -9,7 +11,8 @@ public class HomePage extends BasePage {
     public String LogoutButton = "#logout2";
     public String monitorsLink = "role=link[name='Monitors']";
     public String applelink = "role=link[name='Apple monitor 24']";
-    public  String addToCartButton = "role=link[name='Add to cart']";
+    Locator addToCartButton = page.locator("[onclick=\"addToCart(10)\"]");
+
 
     public HomePage(Page page) {
         super(page);
@@ -31,12 +34,15 @@ public class HomePage extends BasePage {
     }
     public void clickMonitors() {
         click(monitorsLink);
+        waitForPageLoad();
         page.locator(applelink).waitFor();
         click(applelink);
-        waitForPageLoad();
-        page.locator(addToCartButton).waitFor();
-        click(addToCartButton);
+        page.waitForURL("**/prod.html?idp_=10", new Page.WaitForURLOptions().setTimeout(10000));
+    }
+    public void clickaddtocart(){
         handleDialogOnce();
+        addToCartButton.click();
+
     }
 
 }

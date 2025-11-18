@@ -13,8 +13,8 @@ public class RegisterTest extends baseTest {
         home.openHomePage();
         home.clickSignUp();
 
-        String username="Nehad";
-        String password="Nehad";
+        String username="NehaddT";
+        String password="NehaddT";
         RegisterPage register = new RegisterPage(page);
         register.register(username,password);
         page.waitForTimeout(2000);

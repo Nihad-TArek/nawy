@@ -1,18 +1,16 @@
 package tests;
 
 import base.baseTest;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
 import pages.HomePage;
 import pages.LoginPage;
 public class LoginTest extends baseTest {
-
     @Test
     public void userCanLoginWithValidData(){
 
         HomePage home = new HomePage(page);
         home.openHomePage();
-
-        // 2️⃣ Open Sign Up modal
         home.clicklogin();
 
         String username="Nehad";
@@ -23,9 +21,10 @@ public class LoginTest extends baseTest {
 
         page.waitForTimeout(2000);
     }
+
     @Test
     public void usercanlogout(){
-        HomePage home = new HomePage(page);
+       HomePage home = new HomePage(page);
         home.openHomePage();
         home.clicklogin();
 

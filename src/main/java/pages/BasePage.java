@@ -7,8 +7,8 @@ public class BasePage {
     public final Page page;
     public BasePage(Page page) {
         this.page = page;
-        this.page.setDefaultTimeout(2000);        // 10 seconds
-        this.page.setDefaultNavigationTimeout(2000);
+        this.page.setDefaultTimeout(6000);        // 10 seconds
+        this.page.setDefaultNavigationTimeout(6000);
     }
 
     public void click(String locator) {
@@ -31,5 +31,7 @@ public class BasePage {
     }
     public void waitForPageLoad() {
         page.waitForLoadState(LoadState.DOMCONTENTLOADED);
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+
     }
 }
